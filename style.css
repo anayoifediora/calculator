@@ -12,14 +12,20 @@ h1 {
     padding: 10px;
     
 }
-
-.display {
+.display-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.display{
     border: 2px solid black;
     height: 70px;
+    width: 100%;
     margin: 10px;
+    padding: 5px;
     font-size: 45px;
     font-family: monospace;
-    
+    text-align:right;
     
 }
 .buttons {
@@ -30,7 +36,7 @@ h1 {
     gap: 12px;
 }
 button {
-    font-size: 25px;
+    font-size: 30px;
     border-radius: 3px;
 }
 button:hover {

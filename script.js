@@ -1,32 +1,35 @@
-let one = document.querySelector('.one');
-let two = document.querySelector('.two');
-let display = document.querySelector('.display');
-let clear = document.querySelector('.clear');
-let addition = document.querySelector('.addition');
-const subtraction = document.querySelector('.subtraction');
-const equals = document.querySelector('.equals');
-// let buttons = document.querySelectorAll('button');
+const numberButtons = document.querySelectorAll('.number');
+const operationButtons = document.querySelectorAll('.operation');
+const equalsButton = document.querySelector('.equals');
+const clearButton = document.querySelector('.clear');
+const textDisplay = document.querySelector('.display');
 
 
-const numberOne = (e) => {
-    display.innerHTML = e.target.id;
-    return (e.target.id);
+const displayNumber = (e) => {
+    textDisplay.innerHTML = textDisplay.innerHTML + e.target.innerHTML;
 }
-const addFunction = () => {
+const clearDisplay = () => {
+    textDisplay.innerHTML = '';
+}
+
+const displayOperator = (e) => {
+    textDisplay.innerHTML = textDisplay.innerHTML + e.target.innerHTML;
+
+}
+
+const compute = () => {
+    textDisplay.innerHTML = (eval(textDisplay.innerHTML)).toPrecision(8);
     
 }
 
-const numberTwo = (e) => {
-    display.innerHTML = e.target.id;
-    return (e.target.id)
-}
-
-
-clear.addEventListener('click', (e) => {
-    display.innerHTML = 0;
+numberButtons.forEach((button) => {
+    button.addEventListener('click', displayNumber);
 })
-one.addEventListener('click', numberOne);
-two.addEventListener('click', numberTwo);
-addition.addEventListener('click', addFunction);
+clearButton.addEventListener('click', clearDisplay);
 
+operationButtons.forEach((button) => {
+    button.addEventListener('click', displayOperator);
+});
+
+equalsButton.addEventListener('click', compute);
 
